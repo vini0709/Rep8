@@ -1,0 +1,135 @@
+<!--
+  File: /~vini0709/Rep8/multiplication.html
+  91.461 GUI Programming I  Assignment# 8: Using the jQuery UI Slider and Tab Widgets
+  Vinishaben Patel, Umass Lowell Computer Science, Vinishaben_Patel@student.uml.edu
+  Copyright (c) 2018 by Vinishaben Patel. All rights reserved.
+  updated by VP on December 4, 2018 at 10:00 PM
+  Description:  this web page use javascript to create dynamic multiplication table from the user's input and uses jquery plugin to validate user's inputs
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Multiplication Table</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/multiplication.css"/>
+  <!--bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- ui -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <div class ="container" id="header">
+    <div class= "row">
+      <div class= "col-md-8 col-sm-9">
+        <header>
+          <h3>Interactive Dynamic Multiplication Table</h3>
+        </header>
+      </div>
+      <div class= "col-md-4 col-sm-3 dropdown show">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Assignments
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="http://weblab.cs.uml.edu/~vvpatel/A2/A4/FirstWebPage.html">Assignment 2</a>
+          <a class="dropdown-item" href="http://weblab.cs.uml.edu/~vvpatel/A3/A3/PacificTrailsResort.html">Assignment 3</a>
+          <a class="dropdown-item" href="http://weblab.cs.uml.edu/~vvpatel/A2/A4/FirstWebPage.html">Assignment 4</a>
+          <a class="dropdown-item" href="https://vini0709.github.io/A4/FirstWebPage.html">Assignment 5</a>
+          <a class="dropdown-item" href="https://vini0709.github.io/A6/multiplication.html">Assignment 6</a>
+          <a class="dropdown-item" href="https://vini0709.github.io/A7/multiplication.html">Assignment 7</a>
+          <a class="dropdown-item" href="https://vini0709.github.io/Rep8/multiplication.html">Assignment 8</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h5>Enter four inputs in the range: -10 to 10</h5>
+  </div>
+
+  <!-- created form using bootstrap to accept user's input-->
+  <div class="container">
+
+
+    <div id = "form">
+      <form id = "frm" name="myForm">
+        <div class="form-group row">
+          <label class = "col-sm-4 col-md-3 col-form-label">Minimum Row Value: </label>
+          <div class= "col-sm-4 col-md-3">
+            <!-- if the user try to enter alphabets type = "number" handles that error -->
+            <input type="number" name="sMultiplier" id="xBegin"  required>
+          </div>
+          <div class="col-sm-4 col-md-6 slider" id="sliderXBegin"></div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-md-3 col-form-label">Maximum Row Value: </label>
+          <div class="col-sm-4 col-md-3">
+            <input type="number" name="eMultiplier" id="xEnding" required>
+          </div>
+          <div class="col-sm-4 col-md-6 slider" id="sliderXEnd"></div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-md-3 col-form-label">Minimum Column Value: </label>
+          <div class="col-sm-4 col-md-3">
+            <input type="number" name="sMultiplicand" id="yBegin" required>
+          </div>
+          <div class="col-sm-4 col-md-6 slider" id="sliderYBegin"></div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-md-3 col-form-label">Maximum Column Value: </label>
+          <div class="col-sm-4 col-md-3">
+            <input type="number" name="eMultiplicand" id="yEnding" required>
+          </div>
+          <div class="col-sm-4 col-md-6 slider" id="sliderYEnd"></div>
+        </div>
+      </form>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" id="btn1" class="btn btn-danger">Generate Table</button>
+          <button type="submit" id="btn1" class="btn btn-danger tab">Save Table</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- div to contain table-->
+    <div id ="table"></div>
+    <!-- div to contain tabs-->
+    <div id="myTabs">
+      <ul></ul>
+      <!-- taken from https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf -->
+      <label>Enter a tab to remove(index starts at 0):</label>
+      <input type = "number" for="indexNum" id="indexNum">
+      <button class="btn btn-danger" type="button" id="remove">Remove!</button>
+    </div>
+  </div>
+
+  <div class ="container">
+    <footer>
+      <p>&copy;Copyright 2018<a href="mailto:Vinishaben_Patel@student.uml.edu">VPatel </a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+          <img style="border:0;width:88px;height:31px"
+          src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="Valid CSS!" />
+        </a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+  <!-- jQuery-ui -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+  <!--bootstrap-->
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script src="js/multiplication.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/*
+  File: /~vini0709/Rep8/css/multiplication.css
+  91.461 GUI Programming I  Assignment# 8:  Using the jQuery UI Slider and Tab Widgets
+  Vinishaben Patel, Umass Lowell Computer Science, Vinishaben_Patel@student.uml.edu
+  Copyright (c) 2018 by Vinishaben Patel. All rights reserved.
+  updated by VP on December 4, 2018 at 10:00 PM
+  Description: css file to provide styling to multiplication.html file
+*/
+
+body {
+  background: linear-gradient(to bottom, #0099cc 0%, #9999ff 100%);  /* to set gradient background */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-width: 600px;
+}
+
+.container {
+  padding: 20px;
+  background: linear-gradient(to bottom, #33ccff 0%, #9966ff 100%); /* to set gradient background */
+}
+
+#header{
+  background: linear-gradient(to top, #33ccff 0%, #9966ff 100%);
+  text-align: center;
+}
+
+#form {
+  margin-left: 10%;
+  margin-right: auto;
+  min-width: 200px;
+}
+
+#myTable {
+  text-align: center;
+  width : 80%;
+  color: springgreen;
+  background-color: #009999;
+}
+
+#table {
+  /* to scroll when table does not fit in the container */
+  overflow: scroll;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+/* to style multiplier's row and multiplicand's column using pseudo code */
+tr:first-child, td:first-child{
+  background-color: #006666;
+  font-weight: bolder;
+  color: cyan;
+}
+
+table td{
+  padding: 5px;
+  border: solid 2px tomato;
+}
+
+label{
+  font-weight: bold;
+  color: navy;
+}
+
+/* when mouse hover over input box */
+input:hover {
+  background-color: lightblue;
+  border: 2px solid orange;
+}
+
+/* when cursor in input field */
+input:focus {
+  background-color: #00cc99;
+  border: 3px solid green;
+  color: blue;
+}
+
+input.error{
+  color : red;
+  border: 3px red solid;
+}
+
+input{
+  box-sizing: border-box;
+  border: 2px solid #555;
+  outline: none;
+  color: navy;
+  background-color: turquoise;
+  text-align: center;
+}
+
+/* to style range info and header */
+li, header{
+  font-weight: bold;
+  color: navy;
+}
+
+h5{
+  color : #660033;
+}
+
+footer{
+  color:#fff;
+  text-align: center;  /* to align text in center */
+}
+
+footer a {
+  color: white;
+}
+
+label.error {
+  color : #990000;
+}
+
+img {
+  float: right;
+}
+
+.slider{
+  margin-top: 13px;
+}
+
+/* followin  style for tabs */
+/* adopted from https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf */
+#myTabs {
+  width:auto; padding:5px; border:1px solid #636363;
+  background: linear-gradient(to bottom, #0099cc 0%, #9999ff 100%);
+  color : yellow;
+}
+.ui-widget-header {
+  border:0; font-family:Georgia;
+}
+
+#myTabs .ui-widget-content {
+  border:1px solid #aaa; font-size:80%;
+  background: linear-gradient(to bottom, #0099cc 0%, #9999ff 100%);
+}
+.ui-state-default, .ui-widget-content .ui-state-default {
+  border:1px solid #636363; background:#a2a2a2 none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active {
+  border:1px solid #aaa; background:#fff none;
+}
+
+ul.ui-tabs-nav{
+  background: linear-gradient(to bottom, #0099cc 0%, #9999ff 100%);
+}
